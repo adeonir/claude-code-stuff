@@ -20,7 +20,7 @@ design-to-code/
 │   └── build-frontend.md
 ├── skills/                         # Auto-loaded guidance
 │   └── frontend-design/SKILL.md
-└── prompts/{project}/              # Output directory
+└── prompts/                        # Output directory
     ├── copy.yaml
     ├── design.json
     └── prompt-{target}.md
@@ -90,7 +90,7 @@ Skills are loaded automatically when relevant context is detected.
 ### 1. Extract Copy
 
 ```bash
-/extract-copy https://example.com --type=landing --name=my-project
+/extract-copy https://example.com --type=landing
 ```
 
 ### 2. Extract Design

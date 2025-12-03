@@ -31,8 +31,7 @@ If no images are provided, ask the user to paste them or provide URLs.
 ## Process
 
 1. **Locate copy.yaml** for project context
-   - Look in `./prompts/*/copy.yaml`
-   - If multiple projects exist, ask which one
+   - Look in `./prompts/copy.yaml`
 
 2. **Get reference images**
    - If URLs provided, fetch them with WebFetch
@@ -425,6 +424,6 @@ If user provides multiple images with different styles:
 
 ## Output Location
 
-Save to: `./prompts/{project-name}/design.json`
+Save to: `./prompts/design.json`
 
 Same folder as the copy.yaml file.

@@ -1,6 +1,6 @@
 ---
 description: Extract content from URL to copy.yaml
-argument-hint: <url> [--type=landing|website|webapp|app] [--name=project-name]
+argument-hint: <url> [--type=landing|website|webapp|app]
 ---
 
 <objective>
@@ -15,7 +15,7 @@ Arguments received: $ARGUMENTS
 The copy-extractor will:
 1. Fetch and analyze the URL
 2. Detect project type or use --type if provided
-3. Generate copy.yaml in ./prompts/{project-name}/
+3. Generate copy.yaml in ./prompts/
 
 Wait for the agent to complete and inform the user of the result.
 </instructions>

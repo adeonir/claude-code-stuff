@@ -32,8 +32,7 @@ If target is not provided, ask the user.
 ## Process
 
 1. **Locate project files**
-   - Find copy.yaml and design.json in `./prompts/*/`
-   - If multiple projects, ask which one
+   - Find copy.yaml and design.json in `./prompts/`
 
 2. **Ask for target** if not provided
    - Explain differences between platforms
@@ -42,7 +41,7 @@ If target is not provided, ask the user.
 
 4. **Generate optimized prompt** for the target
 
-5. **Save to** `./prompts/{project-name}/prompt-{target}.md`
+5. **Save to** `./prompts/prompt-{target}.md`
 
 ## Target Formats
 
@@ -361,6 +360,6 @@ shadow/lg: {value}
 
 ## Output Location
 
-Save to: `./prompts/{project-name}/prompt-{target}.md`
+Save to: `./prompts/prompt-{target}.md`
 
-Example: `./prompts/pluma/prompt-replit.md`
+Example: `./prompts/prompt-replit.md`

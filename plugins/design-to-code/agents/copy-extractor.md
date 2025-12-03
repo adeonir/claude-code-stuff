@@ -24,7 +24,6 @@ Extract all content from a website or app URL and structure it into a well-organ
 You will receive:
 - A URL to analyze
 - Project type: `landing` | `website` | `webapp` | `app`
-- Project name (optional - infer from URL if not provided)
 
 If any required input is missing, ask the user.
 
@@ -43,7 +42,7 @@ If any required input is missing, ask the user.
 
 4. **Extract content** preserving original tone of voice
 
-5. **Generate copy.yaml** in `./prompts/{project-name}/`
+5. **Generate copy.yaml** in `./prompts/`
 
 ## Output Format
 
@@ -331,6 +330,6 @@ If WebFetch fails:
 
 ## Output Location
 
-Save to: `./prompts/{project-name}/copy.yaml`
+Save to: `./prompts/copy.yaml`
 
 Create the `prompts` folder if it doesn't exist.

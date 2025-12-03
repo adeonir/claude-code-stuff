@@ -38,6 +38,7 @@ When no Vite project exists, create one using pnpm:
 ```bash
 # Create Vite project
 pnpm create vite@latest . --template react-ts
+# If directory is not empty, select "Ignore files and continue"
 
 # Install dependencies
 pnpm install
@@ -48,6 +49,8 @@ pnpm add -D tailwindcss @tailwindcss/vite
 # Initialize shadcn/ui
 pnpm dlx shadcn@latest init -d
 ```
+
+**Important:** If the CLI prompts about non-empty directory, always select "Ignore files and continue". Never select "Remove existing files".
 
 After scaffold, configure `vite.config.ts`:
 
@@ -63,11 +66,9 @@ export default defineConfig({
 
 ## Input Files
 
-Locate in `./prompts/*/`:
+Locate in `./prompts/`:
 - `copy.yaml` - content structure
 - `design.json` - design tokens
-
-If multiple projects exist, ask which one to use.
 
 ## Output Structure
 
