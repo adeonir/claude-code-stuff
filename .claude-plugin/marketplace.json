@@ -11,6 +11,13 @@
       "description": "Extract design from references and generate prompts for AI design tools or build React 19 + Tailwind v4 components",
       "version": "1.0.0",
       "keywords": ["design", "frontend", "react", "tailwind"]
+    },
+    {
+      "name": "git-helpers",
+      "source": "./plugins/git-helpers",
+      "description": "Git workflow commands for commits, PR descriptions, and code reviews with auto-generated messages based on actual diffs",
+      "version": "1.0.0",
+      "keywords": ["git", "workflow", "commit", "pr", "code-review"]
     }
   ]
 }
