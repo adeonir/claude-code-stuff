@@ -1,13 +1,13 @@
 {
   "name": "design-to-code",
   "version": "1.0.0",
-  "description": "Extract design from references and generate prompts for AI design tools or build React 19 + Tailwind v4 components directly",
+  "description": "Extract copy and design from references to generate optimized prompts for AI frontend tools",
   "author": {
     "name": "Adeonir Kohl"
   },
   "repository": "https://github.com/adeonir/claude-code-stuff",
   "license": "MIT",
-  "keywords": ["design", "frontend", "react", "tailwind", "prompts"],
+  "keywords": ["copy", "design", "prompt", "frontend", "ai-tools"],
   "commands": [
     "./commands/extract-copy.md",
     "./commands/extract-design.md",

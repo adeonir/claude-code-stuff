@@ -40,7 +40,7 @@ Add this marketplace to Claude Code:
 
 | Plugin | Description | Version |
 |--------|-------------|---------|
-| [design-to-code](./plugins/design-to-code) | Extract design and build React components | 1.0.0 |
+| [design-to-code](./plugins/design-to-code) | Extract copy and design to generate prompts for AI frontend tools | 1.0.0 |
 | [git-helpers](./plugins/git-helpers) | Git workflow commands (commit, PR, code review) | 1.0.0 |
 
 ### Installing a Plugin

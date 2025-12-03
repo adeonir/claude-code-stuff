@@ -1,13 +1,14 @@
 # Design to Code
 
-Claude Code plugin that extracts design systems from references and generates prompts for AI design tools or builds React 19 + Tailwind v4 components directly.
+Claude Code plugin that extracts copy and design from references to generate optimized prompts for AI frontend tools like Replit, v0, Lovable, and Figma.
 
 ## Features
 
 - Extract content structure from URLs
 - Extract design tokens from reference images (screenshots, mockups)
 - Generate optimized prompts for Replit, v0, Lovable, Figma
-- Build React 19 + Tailwind v4 components directly with Claude Code
+- Build React + Tailwind + shadcn/ui components directly with Claude Code
+- Auto-scaffold Vite projects when needed
 - Auto-loaded skill to avoid generic "AI slop" aesthetics
 
 ## Installation
@@ -27,7 +28,7 @@ Claude Code plugin that extracts design systems from references and generates pr
 | `/extract-copy` | Extract content from URL to copy.yaml |
 | `/extract-design` | Extract design from images to design.json |
 | `/generate-prompt` | Generate prompt for target platform |
-| `/build-frontend` | Build React 19 + Tailwind v4 components |
+| `/build-frontend` | Build React + Tailwind components |
 
 ## Workflow
 
@@ -50,7 +51,7 @@ URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json -+-> /genera
 
 | Skill | Description |
 |-------|-------------|
-| `frontend-design` | Design principles auto-loaded for frontend tasks |
+| `frontend-design` | Distinctive design principles that avoid generic AI aesthetics |
 
 ## Project Types
 
@@ -96,6 +97,8 @@ URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json -+-> /genera
 ```bash
 /build-frontend --output=./src/components
 ```
+
+Auto-scaffolds Vite + React + Tailwind + shadcn/ui if no project exists.
 
 ## Credits
 

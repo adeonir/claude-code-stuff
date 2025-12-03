@@ -1,6 +1,6 @@
 # Design to Code
 
-Claude Code plugin that extracts design systems from references and generates prompts for AI design tools or builds React 19 + Tailwind v4 components directly.
+Claude Code plugin that extracts copy and design from references to generate optimized prompts for AI frontend tools like Replit, v0, Lovable, and Figma.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ URL ──► /extract-copy ──► copy.yaml ──► /extract-design ──
                                               ▲                          │         │
                                               │                          │         ▼
                                     reference images                     │   External tools
-                                    (Dribbble, screenshots)              │   (Replit, v0, etc)
+                                                                         │   (Replit, v0, etc)
                                                                          │
                                                                          └─► /build-frontend ──► React components
                                                                                                  (skill auto-applied)
@@ -46,7 +46,7 @@ URL ──► /extract-copy ──► copy.yaml ──► /extract-design ──
 | `/extract-copy` | Extract content from URL to copy.yaml |
 | `/extract-design` | Extract design from images to design.json |
 | `/generate-prompt` | Generate prompt for target platform |
-| `/build-frontend` | Build React 19 + Tailwind v4 components |
+| `/build-frontend` | Build React + Tailwind components |
 
 ## Agents
 
@@ -106,11 +106,13 @@ Skills are loaded automatically when relevant context is detected.
 /generate-prompt --target=replit
 ```
 
-### 4. Build Frontend (alternative to external tools)
+### 4. Build Frontend (optional, alternative to external tools)
 
 ```bash
 /build-frontend --output=./src/components
 ```
+
+If you prefer to use Claude Code instead of external tools, this command builds the frontend directly. Auto-scaffolds Vite project if needed.
 
 ## Design Philosophy
 
@@ -156,26 +158,9 @@ Skills are loaded automatically when relevant context is detected.
 
 - Workflow based on Deborah Folloni's method (DebGPT)
 - [Original post](https://dfolloni.substack.com/p/os-prompts-que-eu-uso-para-fazer)
-- [Dribbble](https://dribbble.com/) for visual references
 
 ## Tips
 
-1. **Find good Dribbble references:**
-   - `"[niche] landing page"`
-   - `"[niche] design system"`
-   - `"SaaS dashboard"`
-   - `"mobile app [niche]"`
-
-2. **For webapps:**
-   - `"dashboard UI"`
-   - `"admin panel"`
-   - `"SaaS interface"`
-
-3. **For apps:**
-   - `"mobile app UI"`
-   - `"iOS app design"`
-   - `"fintech app"`
-
-4. **Iterate on design.json:**
+1. **Iterate on design.json:**
    - If something doesn't look right, adjust specific values
    - The file is the single source of truth
