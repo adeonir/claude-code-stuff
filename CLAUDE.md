@@ -1,0 +1,51 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Repository Overview
+
+This is a Claude Code plugin marketplace with a plugins-only architecture. All agents, commands, and skills are packaged as plugins - from minimal single-command plugins to comprehensive multi-agent workflows. Install via `/plugin install <name>`.
+
+## Architecture
+
+```
+.claude-plugin/
+└── marketplace.json          # Marketplace registry listing all plugins
+
+plugins/
+├── design-to-code/           # Frontend generation plugin
+│   ├── .claude-plugin/plugin.json
+│   ├── agents/               # Subagents (copy-extractor, design-extractor, etc.)
+│   ├── commands/             # Slash commands (/extract-copy, /extract-design, etc.)
+│   └── skills/               # Auto-loaded skills (frontend-design)
+│
+└── git-helpers/              # Git workflow plugin
+    ├── .claude-plugin/plugin.json
+    ├── agents/               # Subagents (code-reviewer)
+    └── commands/             # Slash commands (/commit, /pr-description, /code-review)
+```
+
+## Plugin Structure
+
+Each plugin follows this structure:
+- `.claude-plugin/plugin.json` - Plugin manifest defining commands, agents, and skills
+- `agents/*.md` - Subagent definitions (invoked via Task tool)
+- `commands/*.md` - Slash command prompts
+- `skills/*/SKILL.md` - Auto-loaded contextual guidance
+
+## Key Plugins
+
+### design-to-code
+Workflow: URL -> `/extract-copy` -> `copy.yaml` -> `/extract-design` -> `design.json` -> `/generate-prompt` or `/build-frontend`
+
+Outputs go to `./prompts/` directory.
+
+### git-helpers
+Commands analyze actual git diffs, not conversation context. Commit message format: `type: concise description` where type is one of: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`.
+
+## Writing New Plugins
+
+1. Create directory under `plugins/<name>/`
+2. Add `.claude-plugin/plugin.json` manifest with arrays for `commands`, `agents`, `skills`
+3. Register in `.claude-plugin/marketplace.json`
+4. Commands/agents/skills are markdown files with prompts

@@ -15,7 +15,7 @@ Claude Code plugin that extracts copy and design from references to generate opt
 
 ```bash
 # Add marketplace (if not already added)
-/plugin marketplace add adeonir/claude-code-stuff
+/plugin marketplace add adeonir/claude-code-plugins
 
 # Install plugin
 /plugin install design-to-code

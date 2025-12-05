@@ -5,7 +5,7 @@
   "author": {
     "name": "Adeonir Kohl"
   },
-  "repository": "https://github.com/adeonir/claude-code-stuff",
+  "repository": "https://github.com/adeonir/claude-code-plugins",
   "license": "MIT",
   "keywords": ["copy", "design", "prompt", "frontend", "ai-tools"],
   "commands": [

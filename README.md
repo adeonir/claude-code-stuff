@@ -1,39 +1,15 @@
-# Claude Code Stuff
+# Claude Code Plugins
 
-A personal collection of standalone agents, commands, and skills for Claude Code, plus a plugin marketplace.
+A personal collection of plugins for Claude Code, organized as a plugin marketplace.
 
-## Standalone Components
-
-Individual agents, commands, and skills that can be used independently.
-
-### Agents
-
-| Agent | Description |
-|-------|-------------|
-| Coming soon | ... |
-
-### Commands
-
-| Command | Description |
-|---------|-------------|
-| Coming soon | ... |
-
-### Skills
-
-| Skill | Description |
-|-------|-------------|
-| Coming soon | ... |
-
-## Plugin Marketplace
-
-Complete plugins with bundled agents, commands, and skills.
+## Available Plugins
 
 ### Installation
 
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add adeonir/claude-code-stuff
+/plugin marketplace add adeonir/claude-code-plugins
 ```
 
 ### Available Plugins
@@ -53,7 +29,7 @@ Add this marketplace to Claude Code:
 
 ```bash
 # Add marketplace
-/plugin marketplace add adeonir/claude-code-stuff
+/plugin marketplace add adeonir/claude-code-plugins
 
 # List available plugins
 /plugin marketplace list
@@ -62,13 +38,13 @@ Add this marketplace to Claude Code:
 /plugin install design-to-code
 
 # Update marketplace
-/plugin marketplace update adeonir/claude-code-stuff
+/plugin marketplace update adeonir/claude-code-plugins
 ```
 
 ## Contributing
 
 1. Fork this repository
-2. Add your plugin/agent/command/skill
+2. Add your plugin under `plugins/`
 3. Submit a pull request
 
 ## License
