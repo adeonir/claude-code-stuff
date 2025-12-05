@@ -13,7 +13,7 @@ This is a Claude Code plugin marketplace with a plugins-only architecture. All a
 └── marketplace.json          # Marketplace registry listing all plugins
 
 plugins/
-├── design-to-code/           # Frontend generation plugin
+├── design-builder/           # Frontend generation plugin
 │   ├── .claude-plugin/plugin.json
 │   ├── agents/               # Subagents (copy-extractor, design-extractor, etc.)
 │   ├── commands/             # Slash commands (/extract-copy, /extract-design, etc.)
@@ -35,8 +35,12 @@ Each plugin follows this structure:
 
 ## Key Plugins
 
-### design-to-code
-Workflow: URL -> `/extract-copy` -> `copy.yaml` -> `/extract-design` -> `design.json` -> `/generate-prompt` or `/build-frontend`
+### design-builder
+Two entry points, each can end with `/build-frontend` or `/generate-prompt`:
+- **Full**: URL -> `/extract-copy` -> `copy.yaml` -> `/extract-design` -> `design.json`
+- **Minimal**: Image -> `/extract-design` -> `design.json` (with brief project description)
+
+Then choose: `/build-frontend` (Claude Code builds it) or `/generate-prompt` (for Replit/v0/Lovable)
 
 Outputs go to `./prompts/` directory.
 

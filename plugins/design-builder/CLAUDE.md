@@ -1,11 +1,11 @@
-# Design to Code
+# Design Builder
 
-Claude Code plugin that extracts copy and design from references to generate optimized prompts for AI frontend tools like Replit, v0, Lovable, and Figma.
+Claude Code plugin that extracts copy and design from references to build frontend components or generate prompts for AI tools.
 
 ## Architecture
 
 ```
-design-to-code/
+design-builder/
 ├── .claude-plugin/
 │   └── plugin.json                 # Plugin manifest
 ├── agents/                         # Specialized subagents
@@ -26,38 +26,41 @@ design-to-code/
     └── prompt-{target}.md
 ```
 
-## Workflow
+## Workflows
+
+Two entry points, each can end with `/build-frontend` or `/generate-prompt`:
 
 ```
-URL ──► /extract-copy ──► copy.yaml ──► /extract-design ──► design.json ─┬─► /generate-prompt ──► prompt.md
-                                              ▲                          │         │
-                                              │                          │         ▼
-                                    reference images                     │   External tools
-                                                                         │   (Replit, v0, etc)
-                                                                         │
-                                                                         └─► /build-frontend ──► React components
-                                                                                                 (skill auto-applied)
+# Full: Start from URL reference
+URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json
+
+# Minimal: Start from design image only (with brief project description)
+Image -> /extract-design -> design.json
+
+# Then choose output:
+-> /build-frontend    # Claude Code builds it
+-> /generate-prompt   # For Replit/v0/Lovable
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/extract-copy` | Extract content from URL to copy.yaml |
+| `/extract-copy` | Extract content from URL to copy.yaml (optional) |
 | `/extract-design` | Extract design from images to design.json |
 | `/generate-prompt` | Generate prompt for target platform |
-| `/build-frontend` | Build React + Tailwind components |
+| `/build-frontend` | Build frontend components |
 
 ## Agents
 
-| Agent | Role | Model |
-|-------|------|-------|
-| `copy-extractor` | Content Strategist | opus |
-| `design-extractor` | Creative Director | opus |
-| `prompt-generator` | Prompt Engineer | opus |
-| `frontend-builder` | Frontend Engineer | opus |
+| Agent | Role |
+|-------|------|
+| `copy-extractor` | Content Strategist |
+| `design-extractor` | Creative Director |
+| `prompt-generator` | Prompt Engineer |
+| `frontend-builder` | Frontend Engineer |
 
-Agents can be invoked directly: "Use the copy-extractor agent to analyze this site"
+Agents can be invoked directly: "Use the design-extractor agent to analyze this image"
 
 ## Skills
 
@@ -65,7 +68,7 @@ Agents can be invoked directly: "Use the copy-extractor agent to analyze this si
 |-------|-------------|
 | `frontend-design` | Design principles auto-loaded for frontend tasks (avoids AI slop aesthetics) |
 
-Skills are loaded automatically when relevant context is detected.
+The frontend-builder agent MUST apply the frontend-design skill.
 
 ## Project Types
 
@@ -84,53 +87,6 @@ Skills are loaded automatically when relevant context is detected.
 | `v0` | Concise, shadcn/ui | Quick React components |
 | `lovable` | UX-focused, flows | Apps with Supabase backend |
 | `figma` | Component specs | Design system documentation |
-
-## Usage
-
-### 1. Extract Copy
-
-```bash
-/extract-copy https://example.com --type=landing
-```
-
-### 2. Extract Design
-
-```bash
-/extract-design
-# Then paste reference images
-```
-
-### 3. Generate Prompt
-
-```bash
-/generate-prompt --target=replit
-```
-
-### 4. Build Frontend (optional, alternative to external tools)
-
-```bash
-/build-frontend --output=./src/components
-```
-
-If you prefer to use Claude Code instead of external tools, this command builds the frontend directly. Auto-scaffolds Vite project if needed.
-
-## Design Philosophy
-
-### Avoid (symptoms of "vibe coded"):
-- Generic purple gradients
-- Inter as lazy fallback font
-- Icons only, no real images
-- Identical layouts across sections
-- Missing hover states and micro-interactions
-- Cramped spacing
-
-### Do:
-- Extract style from professional references
-- Use consistent design tokens
-- Implement all hover states
-- Alternate backgrounds between sections
-- Generous whitespace
-- Subtle, purposeful animations
 
 ## Output Formats
 
@@ -158,9 +114,3 @@ If you prefer to use Claude Code instead of external tools, this command builds 
 
 - Workflow based on Deborah Folloni's method (DebGPT)
 - [Original post](https://dfolloni.substack.com/p/os-prompts-que-eu-uso-para-fazer)
-
-## Tips
-
-1. **Iterate on design.json:**
-   - If something doesn't look right, adjust specific values
-   - The file is the single source of truth

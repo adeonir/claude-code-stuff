@@ -16,13 +16,13 @@ Add this marketplace to Claude Code:
 
 | Plugin | Description | Version |
 |--------|-------------|---------|
-| [design-to-code](./plugins/design-to-code) | Extract copy and design to generate prompts for AI frontend tools | 1.0.0 |
+| [design-builder](./plugins/design-builder) | Extract copy and design to build components or generate prompts for AI tools | 1.0.0 |
 | [git-helpers](./plugins/git-helpers) | Git workflow commands (commit, PR, code review) | 1.0.0 |
 
 ### Installing a Plugin
 
 ```bash
-/plugin install design-to-code
+/plugin install design-builder
 ```
 
 ### Marketplace Commands
@@ -35,7 +35,7 @@ Add this marketplace to Claude Code:
 /plugin marketplace list
 
 # Install a plugin
-/plugin install design-to-code
+/plugin install design-builder
 
 # Update marketplace
 /plugin marketplace update adeonir/claude-code-plugins

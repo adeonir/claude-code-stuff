@@ -1,13 +1,13 @@
-# Design to Code
+# Design Builder
 
-Claude Code plugin that extracts copy and design from references to generate optimized prompts for AI frontend tools like Replit, v0, Lovable, and Figma.
+Claude Code plugin that extracts copy and design from references to build frontend components or generate prompts for AI tools.
 
 ## Features
 
-- Extract content structure from URLs
+- Extract content structure from URLs (optional)
 - Extract design tokens from reference images (screenshots, mockups)
+- Build frontend components directly with Claude Code
 - Generate optimized prompts for Replit, v0, Lovable, Figma
-- Build React + Tailwind + shadcn/ui components directly with Claude Code
 - Auto-scaffold Vite projects when needed
 - Auto-loaded skill to avoid generic "AI slop" aesthetics
 
@@ -18,25 +18,33 @@ Claude Code plugin that extracts copy and design from references to generate opt
 /plugin marketplace add adeonir/claude-code-plugins
 
 # Install plugin
-/plugin install design-to-code
+/plugin install design-builder
+```
+
+## Workflows
+
+Two entry points, each can end with `/build-frontend` or `/generate-prompt`:
+
+```
+# Full: Start from URL reference
+URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json
+
+# Minimal: Start from design image only (with brief project description)
+Image -> /extract-design -> design.json
+
+# Then choose output:
+-> /build-frontend    # Claude Code builds it
+-> /generate-prompt   # For Replit/v0/Lovable
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `/extract-copy` | Extract content from URL to copy.yaml |
+| `/extract-copy` | Extract content from URL to copy.yaml (optional) |
 | `/extract-design` | Extract design from images to design.json |
 | `/generate-prompt` | Generate prompt for target platform |
-| `/build-frontend` | Build React + Tailwind components |
-
-## Workflow
-
-```
-URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json -+-> /generate-prompt -> External tools
-                                                                      |
-                                                                      +-> /build-frontend -> React components
-```
+| `/build-frontend` | Build frontend components |
 
 ## Agents
 
@@ -45,7 +53,7 @@ URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json -+-> /genera
 | `copy-extractor` | Content Strategist - extracts content from URLs |
 | `design-extractor` | Creative Director - extracts design from images |
 | `prompt-generator` | Prompt Engineer - generates platform-specific prompts |
-| `frontend-builder` | Frontend Engineer - builds React components |
+| `frontend-builder` | Frontend Engineer - builds components |
 
 ## Skills
 
@@ -73,32 +81,32 @@ URL -> /extract-copy -> copy.yaml -> /extract-design -> design.json -+-> /genera
 
 ## Usage
 
-### 1. Extract Copy
+### Full Workflow
 
 ```bash
-/extract-copy https://example.com --type=landing --name=my-project
-```
+# 1. Extract copy from reference URL
+/extract-copy https://example.com --type=landing
 
-### 2. Extract Design
-
-```bash
+# 2. Extract design from images
 /extract-design
 # Then paste reference images
-```
 
-### 3. Generate Prompt
-
-```bash
+# 3. Build or generate prompt
+/build-frontend --output=./src/components
+# OR
 /generate-prompt --target=replit
 ```
 
-### 4. Build Frontend
+### Minimal Workflow (design only)
 
 ```bash
-/build-frontend --output=./src/components
-```
+# 1. Extract design from images (will ask for project description)
+/extract-design
+# Paste images, then provide brief description
 
-Auto-scaffolds Vite + React + Tailwind + shadcn/ui if no project exists.
+# 2. Build frontend
+/build-frontend
+```
 
 ## Credits
 

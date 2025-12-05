@@ -6,11 +6,11 @@
   },
   "plugins": [
     {
-      "name": "design-to-code",
-      "source": "./plugins/design-to-code",
-      "description": "Extract copy and design from references to generate optimized prompts for AI frontend tools",
+      "name": "design-builder",
+      "source": "./plugins/design-builder",
+      "description": "Extract copy and design from references to build frontend components or generate prompts for AI tools",
       "version": "1.0.0",
-      "keywords": ["copy", "design", "prompt", "frontend", "ai-tools"]
+      "keywords": ["design", "frontend", "components", "prompt", "ai-tools"]
     },
     {
       "name": "git-helpers",

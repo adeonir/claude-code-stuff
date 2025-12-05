@@ -1,7 +1,7 @@
 {
-  "name": "design-to-code",
+  "name": "design-builder",
   "version": "1.0.0",
-  "description": "Extract copy and design from references to generate optimized prompts for AI frontend tools",
+  "description": "Extract copy and design from references to build frontend components or generate prompts for AI tools",
   "author": {
     "name": "Adeonir Kohl"
   },

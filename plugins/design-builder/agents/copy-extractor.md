@@ -1,9 +1,7 @@
 ---
 name: copy-extractor
-description: Content Strategist that extracts structured content from URLs. Use when starting a new design-to-code project and need to analyze a website or app to generate copy.yaml with navigation, sections, and content.
-tools: WebFetch, Read, Write, Glob, AskUserQuestion
-model: opus
-permissionMode: default
+description: Content Strategist that extracts structured content from URLs. Use to generate copy.yaml with navigation and sections.
+tools: AskUserQuestion, Glob, Read, WebFetch, Write
 ---
 
 # Copy Extractor Agent

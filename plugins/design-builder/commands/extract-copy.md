@@ -1,5 +1,5 @@
 ---
-description: Extract content from URL to copy.yaml
+description: Extract structured content from URLs
 argument-hint: <url> [--type=landing|website|webapp|app]
 ---
 
